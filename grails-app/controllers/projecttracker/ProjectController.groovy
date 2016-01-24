@@ -1,6 +1,6 @@
 package projecttracker
 
-class ListProjectController {
+class ProjectController {
 	
 	//metodo default
 	def index = {
@@ -14,7 +14,7 @@ class ListProjectController {
 //		def projectName = "Project tracker example"
 //		def dueDate = "18/01/2015"
 		
-		def allProject = ListProject.list()
+		def allProject = Project.list()
 		[allProject:allProject]
 		
 		//groovy
