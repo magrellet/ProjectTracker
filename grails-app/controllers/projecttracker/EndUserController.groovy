@@ -3,7 +3,7 @@ package projecttracker
 import org.springframework.dao.DataIntegrityViolationException
 
 class EndUserController {
-
+ //comando por consola C:\ws_grails\ProjectTracker>grails generate-all projecttracker.EndUser
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
