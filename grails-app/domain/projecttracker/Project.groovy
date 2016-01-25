@@ -10,6 +10,10 @@ class Project {
 	String name
 	String description
 	Date dueDate
+	//dropdown list
+	String toString(){
+		"${name}"
+	}
 	
 	//relacion, hijo de EndUser modelo
 	static belongsTo = [owner:EndUser]
@@ -17,5 +21,9 @@ class Project {
 	static hasMany = [task:Task]
 
     static constraints = {
+		//Orden para la lista de scaffold
+//		name()
+//		description()
+//		date()
     }
 }

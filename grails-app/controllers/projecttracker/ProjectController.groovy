@@ -2,10 +2,13 @@ package projecttracker
 
 class ProjectController {
 	
+	def scaffold = true
+	
 	//metodo default
 	def index = {
 		//redirecciono a otro controlador
-		redirect (action:current)
+		//redirect (action:current)
+		redirect (action:list)
 	}
     def current= {
 		//mensaje al explorador
