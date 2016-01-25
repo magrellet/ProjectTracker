@@ -15,6 +15,7 @@ class EndUser {
     static constraints = {
 		fullName()
 		userName()
-		password()
+		//
+		password(password:true)
     }
 }

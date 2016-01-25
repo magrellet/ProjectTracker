@@ -7,8 +7,31 @@ class EndUserController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
-        redirect(action: "list", params: params)
+//        redirect(action: "login", params: params)
+		redirect(action: "list", params: params)
     }
+	
+	def login = {}
+	
+	def authenticate = {
+		def user = EndUser.findByUserNameAndPassword(params.userName, params.password)
+		if(user){
+			session.user = user
+			flash.message="Buenas ${user.fullName}!"
+			redirect(action:"login")
+		}	
+		else{
+			flash.message = "Login incorrecto ${params.userName}. Intente de nuevo"
+			redirect(action:"login")
+		}
+		
+	}
+	
+	def logout = {
+		flash.message = "Chau ${session.fullName}"
+		session.user = null
+		redirect(action:"login")
+	}
 
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
