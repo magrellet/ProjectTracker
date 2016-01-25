@@ -10,6 +10,7 @@ class Project {
 	String name
 	String description
 	Date dueDate
+	String billingType
 	//dropdown list
 	String toString(){
 		"${name}"
@@ -22,8 +23,12 @@ class Project {
 
     static constraints = {
 		//Orden para la lista de scaffold
-//		name()
-//		description()
-//		date()
+		//blank false=requerido , unique = true->no sea repetido
+		name(blank:false, unique:true)
+		description()
+		//min: no pueda entrar una fecha anterior a la de hoy
+		dueDate(min: new Date())
+		//Los valores que quiero que tenga
+		billingType(blank:false,inList: ["Hourly","Milestone","Non-billable"])
     }
 }
